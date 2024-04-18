@@ -5,7 +5,8 @@ createApp({
     return {
       indexImg: 0,
       directionNext: true,
-timer:null,
+      autoPlay: true,
+      timer:null,
       images: [
         {
           image: "img/01.webp",
@@ -75,6 +76,28 @@ timer:null,
       }, 3000)
       this.directionNext=true;
     }
+
+},
+stop: function () {
+
+  if (this.autoPlay) {
+    clearInterval(this.timer);
+    this.autoPlay=false;
+  } else{
+    this.autoPlay=true;
+    if (this.directionNext) {
+      clearInterval(this.timer);
+      this.timer=setInterval(() => {
+        this.nextPic()
+      }, 3000)
+      
+    } else{
+      clearInterval(this.timer);
+      this.timer=setInterval(() => {
+        this.prevPic()
+      }, 3000)
+    }
+  }
 
 },
 }
