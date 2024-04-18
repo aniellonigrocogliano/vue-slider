@@ -1,10 +1,9 @@
 
 const { createApp } = Vue;
-
 createApp({
   data() {
     return {
-      indexImg:0,
+      indexImg: 0,
       images: [
         {
           image: "img/01.webp",
@@ -32,9 +31,30 @@ createApp({
           text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
         },
       ],
+  
     };
   },
+  created (){
+    
+  },
   methods: {
+    nextPic: function () {
+
+      if (this.indexImg === this.images.length-1) {
+        this.indexImg = 0;
+      } else{
+        this.indexImg++;
+      }
+
+    },
+    prevPic: function () {
+
+      if (this.indexImg === 0 ) {
+        this.indexImg = this.images.length-1;
+      } else{
+        this.indexImg--;
+      }
 
   },
+}
 }).mount("#app");

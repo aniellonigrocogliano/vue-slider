@@ -64,23 +64,19 @@
               </div>
               <div class="my-thumbnails position-relative">
                 <!-- prev -->
-                <div class="my-previous position-absolute">
+                <div @click="prevPic" class="my-previous position-absolute">
                   <span class="my-prev-hook"></span>
                 </div>
                 <!-- next -->
-                <div class="my-next position-absolute">
+                <div @click="nextPic" class="my-next position-absolute">
                   <span class="my-next-hook"></span>
                 </div>
                 <!-- immagini interne -->
-                <img
-                  class="img-fluid my-thumbnail active"
-                  src="./img/01.webp"
-                  alt="Thumbnail of Marvel's Spiderman Miles Morale picture"
-                />
-                <img
+                <img v-for="(item, index) in images"
+                  :class="[indexImg ? 'index' : 'active']"
                   class="img-fluid my-thumbnail"
-                  src="./img/02.webp"
-                  alt="Thumbnail of Ratchet & Clank: Rift Apart picture"
+                  :src='images[index].image'
+                  alt='images[index].title'
                 />
                 <!-- etc ... -->
               </div>
@@ -88,7 +84,7 @@
           </div>
 
           <div class="col-12 p-3" id="my-after-carousel">
-            <button id="my-order-button" class="btn btn-primary">
+            <button @click="nextPic"  id="my-order-button" class="btn btn-primary">
               Inverti l'ordine di scorrimento
             </button>
             <button id="my-stop-button" class="btn btn-primary">
