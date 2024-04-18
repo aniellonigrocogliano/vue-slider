@@ -27,12 +27,14 @@
 
     <!-- Custom style -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Vue js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <title>JS Array Carousel with Objects</title>
   </head>
   <body>
     <main>
-      <div class="container-fluid p-5">
+      <div id="app" class="container-fluid p-5">
         <div class="row text-center">
           <div class="col-12 p-3" id="my-before-carousel"></div>
 
@@ -47,38 +49,18 @@
                 <div class="my-carousel-item active" carousel-item="1">
                   <img
                     class="img-fluid"
-                    src="./img/01.webp"
-                    alt="Marvel's Spiderman Miles Morale picture"
+                    :src="images[indexImg].image"
+                    :alt="images[indexImg].title"
                   />
                   <div class="item-description px-3">
-                    <h2>Marvel's Spiderman Miles Morale</h2>
+                    <h2>{{images[indexImg].title}}</h2>
                     <p>
-                      Experience the rise of Miles Morales as the new hero
-                      masters incredible, explosive new powers to become his own
-                      Spider-Man.
+                      {{images[indexImg].text}}
                     </p>
                   </div>
                 </div>
                 <!-- /immagine 1 -->
 
-                <!-- immagine 2 -->
-                <div class="my-carousel-item" carousel-item="1">
-                  <img
-                    class="img-fluid"
-                    src="./img/02.webp"
-                    alt="Ratchet & Clank: Rift Apart"
-                  />
-                  <div class="item-description px-3">
-                    <h2>Ratchet & Clank: Rift Apart</h2>
-                    <p>
-                      Go dimension-hopping with Ratchet and Clank as they take
-                      on an evil emperor from another reality.
-                    </p>
-                  </div>
-                </div>
-                <!-- /immagine 2 -->
-
-                <!-- etc .... -->
               </div>
               <div class="my-thumbnails position-relative">
                 <!-- prev -->
@@ -116,5 +98,6 @@
         </div>
       </div>
     </main>
+    <script src="./js/main.js"></script>
   </body>
 </html>
