@@ -4,7 +4,8 @@ createApp({
   data() {
     return {
       indexImg: 0,
-      indexActive: 0,
+      directionNext: true,
+timer:null,
       images: [
         {
           image: "img/01.webp",
@@ -36,7 +37,7 @@ createApp({
     };
   },
   created (){
-    clock=setInterval(() => {
+    this.timer=setInterval(() => {
       this.nextPic()
     }, 3000)
   },
@@ -59,5 +60,22 @@ createApp({
       }
 
   },
+  change: function () {
+
+    if (this.directionNext) {
+      clearInterval(this.timer);
+      this.timer=setInterval(() => {
+        this.prevPic()
+      }, 3000)
+      this.directionNext=false;
+    } else{
+      clearInterval(this.timer);
+      this.timer=setInterval(() => {
+        this.nextPic()
+      }, 3000)
+      this.directionNext=true;
+    }
+
+},
 }
 }).mount("#app");
