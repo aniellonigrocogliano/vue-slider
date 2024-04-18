@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
       indexImg: 0,
+      indexActive: 0,
       images: [
         {
           image: "img/01.webp",
@@ -35,7 +36,7 @@ createApp({
     };
   },
   created (){
-    
+
   },
   methods: {
     nextPic: function () {

@@ -73,7 +73,7 @@
                 </div>
                 <!-- immagini interne -->
                 <img v-for="(item, index) in images"
-                  :class="[indexImg ? 'index' : 'active']"
+                :class="{ active: indexImg==index }"
                   class="img-fluid my-thumbnail"
                   :src='images[index].image'
                   alt='images[index].title'
