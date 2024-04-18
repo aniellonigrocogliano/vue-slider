@@ -36,7 +36,9 @@ createApp({
     };
   },
   created (){
-
+    clock=setInterval(() => {
+      this.nextPic()
+    }, 3000)
   },
   methods: {
     nextPic: function () {
